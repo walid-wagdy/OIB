@@ -1,0 +1,42 @@
+{% extends "travel/base.html"%}
+{% load static %}
+{% block content %} 
+<div class="container">
+  <div class="container">
+    <div class="section">
+    <form id="ftravel" name="ftravel" class="col s12" method="POST" action="{% url 'travel-travel'  %}">
+      {% csrf_token %}
+     <div class="row">
+      <div class="input-field col s12">
+        <select id="dest" name="dest">
+          <option value="" disabled selected>Choose your option</option>
+          <option value="1">Schengen Area</option>
+          <option value="2">World Wide Excluding USA, Canada, Australia & Japan</option>
+          <option value="3">World Wide Including USA, Canada, Australia & Japan</option>
+        </select>
+        <label>Destination</label>
+      </div>
+     </div>
+     <div class="row">
+      <div class="input-field col s4">
+        <input placeholder="Enter the age on travling date" id="age" name="age" type="number" class="validate">
+        <label for="age">Age</label>
+      </div>
+      <div class="input-field col s4">
+        <input type="text" name="travelon" class="datepicker">
+        <label for="travelon">Date of Travel</label>
+      </div>
+      <div class="input-field col s4">
+        <input type="text" name="returnon" class="datepicker">
+        <label for="returnon">Date of Return</label>
+      </div>
+    </div>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+      <i class="material-icons left">send</i>
+    </button>
+      </form>
+    </div>
+  </div>
+  </div>
+
+{% endblock %}
